@@ -13,7 +13,7 @@ provider "google" {
   region  = "europe-west1"
 }
 
-resource "google_storage_bucket" "tera-bucket" {
+resource "google_storage_bucket" "terra-bucket" {
   name          = "taxi-rides-ny-410014-terra-bucket"
   location      = "europe-west1"
   force_destroy = true
