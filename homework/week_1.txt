@@ -1,0 +1,25 @@
+Homework Week 1
+
+1. 
+--rm
+
+2. 
+0.42.0
+
+3. 
+15612
+
+4. 
+2019-09-26
+
+5. 
+"Brooklyn" "Manhattan" "Queens"
+
+6. 
+JFK Airport
+
+7. 
+google_bigquery_dataset.dataset: Creating...
+google_storage_bucket.data-lake-bucket: Creating...
+google_bigquery_dataset.dataset: Creation complete after 2s [id=projects/terraform-de-411309/datasets/ny_taxi_dataset]
+google_storage_bucket.data-lake-bucket: Creation complete after 3s [id=terraform-de-411309-terra-bucket]
