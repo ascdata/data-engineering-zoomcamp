@@ -8,6 +8,7 @@ terraform {
 }
 
 provider "google" {
+  credentials = "/home/Dev02/data-engineering-zoomcamp/week_1_basics_n_setup/1_terraform_gcp/terraform/terraform_basic/keys/creds.json"
   project = "taxi-rides-ny-410014"
   region  = "europe-west1"
 }
@@ -25,4 +26,9 @@ resource "google_storage_bucket" "tera-bucket" {
       type = "AbortIncompleteMultipartUpload"
     }
   }
+}
+
+resource "google_bigquery_dataset" "terra-dataset" {
+  dataset_id = "terra_dataset"
+
 }
