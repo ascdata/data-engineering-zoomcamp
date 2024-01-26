@@ -8,41 +8,22 @@ terraform {
 }
 
 provider "google" {
-# Credentials only needs to be set if you do not have the GOOGLE_APPLICATION_CREDENTIALS set
-#  credentials = 
-  project = "<Your Project ID>"
-  region  = "us-central1"
+  credentials = "/home/Dev02/data-engineering-zoomcamp/week_1_basics_n_setup/1_terraform_gcp/terraform/terraform_basic/keys/creds.json" 
+  project = "taxi-rides-ny-410014"
+  region  = "europe-west1-b"
 }
 
-
-
-resource "google_storage_bucket" "data-lake-bucket" {
-  name          = "<Your Unique Bucket Name>"
-  location      = "US"
-
-  # Optional, but recommended settings:
-  storage_class = "STANDARD"
-  uniform_bucket_level_access = true
-
-  versioning {
-    enabled     = true
-  }
+resource "google_storage_bucket" "tera-bucket" {
+  name          = "taxi-rides-ny-410014-terra-bucket"
+  location      = "DE"
+  force_destroy = true
 
   lifecycle_rule {
-    action {
-      type = "Delete"
-    }
     condition {
-      age = 30  // days
+      age = 1
+    }
+    action {
+      type = "AbortIncompleteMultipartUpload"
     }
   }
-
-  force_destroy = true
-}
-
-
-resource "google_bigquery_dataset" "dataset" {
-  dataset_id = "<The Dataset Name You Want to Use>"
-  project    = "<Your Project ID>"
-  location   = "US"
 }
